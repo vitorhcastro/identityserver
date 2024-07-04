@@ -1,5 +1,6 @@
 namespace Presentation.Controllers;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Duende.IdentityServer.EntityFramework.DbContexts;
 using Duende.IdentityServer.EntityFramework.Entities;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ApiResourcesController(ConfigurationDbContext context) : ControllerBase

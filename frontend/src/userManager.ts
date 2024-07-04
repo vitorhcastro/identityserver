@@ -5,9 +5,8 @@ const settings = {
     client_id: 'react-client',
     redirect_uri: 'http://localhost:3000/callback',
     response_type: 'code',
-    scope: 'openid profile api1',
+    scope: 'openid profile identity-server-api',
     post_logout_redirect_uri: 'http://localhost:3000/',
-    userStore: new WebStorageStateStore({ store: window.localStorage })
 };
 
 const userManager = new UserManager(settings);

@@ -1,13 +1,14 @@
 import React from 'react';
-import userManager from './userManager';
+import { useAuth } from './auth';
 
 const Login: React.FC = () => {
-    const handleLogin = () => {
-        userManager.signinRedirect();
-    };
+    const { signIn } = useAuth();
 
     return (
-        <button onClick={handleLogin}>Login</button>
+        <div>
+            <h2>Login</h2>
+            <button onClick={signIn}>Sign In</button>
+        </div>
     );
 };
 
