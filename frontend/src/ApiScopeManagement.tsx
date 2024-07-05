@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+import apiClient from './apiClient';
 
 interface ApiScope {
     id?: number;
@@ -14,7 +14,7 @@ const ApiScopeManagement: React.FC = () => {
     const [apiScope, setApiScope] = useState<ApiScope>({ name: '', displayName: '', description: '', enabled: true });
 
     useEffect(() => {
-        axios.get<ApiScope[]>('/api/apiscopes')
+        apiClient.get<ApiScope[]>('/api/apiscopes')
             .then(response => setApiScopes(response.data))
             .catch(error => console.error(error));
     }, []);
@@ -25,7 +25,7 @@ const ApiScopeManagement: React.FC = () => {
     };
 
     const handleSubmit = () => {
-        axios.post('/api/apiscopes', apiScope)
+        apiClient.post('/api/apiscopes', apiScope)
             .then(response => {
                 setApiScopes([...apiScopes, response.data]);
                 setApiScope({ name: '', displayName: '', description: '', enabled: true });

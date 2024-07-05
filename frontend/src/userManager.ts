@@ -7,6 +7,9 @@ const settings = {
     response_type: 'code',
     scope: 'openid profile identity-server-api',
     post_logout_redirect_uri: 'http://localhost:3000/',
+    automaticSilentRenew: true,
+    loadUserInfo: true,
+    userStore: new WebStorageStateStore({ store: window.localStorage }) // Ensure state is stored in localStorage
 };
 
 const userManager = new UserManager(settings);

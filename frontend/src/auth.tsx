@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User } from 'oidc-client';
+import { User, Log } from 'oidc-client';
 import userManager from './userManager';
+
+Log.logger = console;
+Log.level = Log.DEBUG;
 
 interface AuthContextProps {
     isAuthenticated: boolean;
@@ -22,6 +25,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         userManager.getUser().then((loadedUser) => {
             setUser(loadedUser);
         });
+
+        userManager.events.addUserLoaded((loadedUser) => {
+            setUser(loadedUser);
+        });
+
+        userManager.events.addUserUnloaded(() => {
+            setUser(null);
+        });
+
+        return () => {
+            userManager.events.removeUserLoaded((loadedUser) => {
+                setUser(loadedUser);
+            });
+
+            userManager.events.removeUserUnloaded(() => {
+                setUser(null);
+            });
+        };
     }, []);
 
     const signIn = () => {

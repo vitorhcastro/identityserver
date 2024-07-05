@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+import apiClient from './apiClient';
 
 interface ApiResource {
     id?: number;
@@ -14,8 +14,8 @@ const ApiResourceManagement: React.FC = () => {
     const [apiResource, setApiResource] = useState<ApiResource>({ name: '', displayName: '', description: '', enabled: true });
 
     useEffect(() => {
-        axios.get<ApiResource[]>('/api/apiresources')
-            .then(response => setApiResources(response.data))
+        apiClient.get<ApiResource[]>('/api/apiresources')
+        .then(response => setApiResources(response.data))
             .catch(error => console.error(error));
     }, []);
 
@@ -25,7 +25,7 @@ const ApiResourceManagement: React.FC = () => {
     };
 
     const handleSubmit = () => {
-        axios.post('/api/apiresources', apiResource)
+        apiClient.post('/api/apiresources', apiResource)
             .then(response => {
                 setApiResources([...apiResources, response.data]);
                 setApiResource({ name: '', displayName: '', description: '', enabled: true });

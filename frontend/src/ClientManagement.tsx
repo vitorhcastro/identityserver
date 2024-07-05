@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+import apiClient from './apiClient';
 
 interface Client {
     id?: number;
@@ -11,11 +11,19 @@ interface Client {
 const ClientManagement: React.FC = () => {
     const [clients, setClients] = useState<Client[]>([]);
     const [client, setClient] = useState<Client>({ clientId: '', secret: '', redirectUri: '' });
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios.get<Client[]>('/api/clients')
-            .then(response => setClients(response.data))
-            .catch(error => console.error(error));
+        apiClient.get('/api/clients')
+            .then(response => {
+                const clientsData = Array.isArray(response.data) ? response.data : [];
+                setClients(clientsData);
+                setError(null);
+            })
+            .catch(error => {
+                console.error('Error fetching clients:', error);
+                setError('Error fetching clients');
+            });
     }, []);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +32,7 @@ const ClientManagement: React.FC = () => {
     };
 
     const handleSubmit = () => {
-        axios.post('/api/clients', client)
+        apiClient.post('/clients', client)
             .then(response => {
                 setClients([...clients, response.data]);
                 setClient({ clientId: '', secret: '', redirectUri: '' });
@@ -41,6 +49,7 @@ const ClientManagement: React.FC = () => {
             <button onClick={handleSubmit}>Add Client</button>
             
             <h3>Existing Clients</h3>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
             <ul>
                 {clients.map(c => (
                     <li key={c.clientId}>{c.clientId}</li>

@@ -1,15 +1,25 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Log } from 'oidc-client';
 import userManager from './userManager';
 
+Log.logger = console;
+Log.level = Log.DEBUG;
+
 const Callback: React.FC = () => {
-    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        userManager.signinRedirectCallback().then(() => {
-            window.location.href = '/';
+        userManager.signinRedirectCallback().then((user) => {
+            if (user) {
+                console.log('User:', user);
+                navigate('/');
+            }
+        }).catch(error => {
+            console.error('Error during callback handling:', error);
+            navigate('/'); // Redirect home even if there's an error
         });
-    }, [location]);
+    }, [navigate]);
 
     return <div>Loading...</div>;
 };

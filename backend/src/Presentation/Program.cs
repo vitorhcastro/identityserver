@@ -1,13 +1,30 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Presentation.Models;
 using Presentation.Persistence;
+
+const string allowLocalhostOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var services = builder.Services;
 {
+    services.AddCors(
+        options =>
+        {
+            options.AddPolicy(
+                allowLocalhostOrigins,
+                corsPolicyBuilder =>
+                {
+                    corsPolicyBuilder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost");
+                    corsPolicyBuilder.AllowAnyMethod();
+                    corsPolicyBuilder.AllowAnyHeader();
+                });
+        });
+    
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -17,7 +34,7 @@ var services = builder.Services;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders()
-        .AddDefaultUI();  // Add default UI
+        .AddDefaultUI();
 
     services.AddIdentityServer(options =>
         {
@@ -42,8 +59,11 @@ var services = builder.Services;
         })
         .AddAspNetIdentity<ApplicationUser>();
 
-    services.AddAuthentication()
-        .AddCookie("Cookies")
+    services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
         .AddOpenIdConnect("oidc", options =>
         {
             options.Authority = "https://localhost:7196"; // IdentityServer URL
@@ -51,7 +71,21 @@ var services = builder.Services;
             options.ClientSecret = "secret";
             options.ResponseType = "code";
             options.SaveTokens = true;
+        })
+        .AddJwtBearer(options =>
+        {
+            options.Authority = "https://localhost:7196";
+            options.Audience = "identity-server-api";
         });
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("ApiScope", policy =>
+        {
+            policy.RequireAuthenticatedUser();
+            policy.RequireClaim("scope", "identity-server-api");
+        });
+    });
 
     services.AddControllersWithViews();
     services.AddRazorPages();
@@ -80,6 +114,8 @@ var app = builder.Build();
 
     app.UseStaticFiles();
     app.UseRouting();
+    
+    app.UseCors(allowLocalhostOrigins);
 
     app.UseIdentityServer();
     app.UseAuthentication();
