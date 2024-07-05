@@ -4,6 +4,7 @@ import ClientManagement from './ClientManagement';
 import ApiResourceManagement from './ApiResourceManagement';
 import ApiScopeManagement from './ApiScopeManagement';
 import Login from './Login';
+import Logout from './Logout';
 import Home from './Home';
 import Callback from './Callback';
 import PrivateRoute from './PrivateRoute';
@@ -11,7 +12,7 @@ import { AuthProvider, useAuth } from './auth';
 import './App.css';
 
 const Navigation: React.FC = () => {
-    const { isAuthenticated, signIn, signOut } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     return (
         <nav>
@@ -28,13 +29,13 @@ const Navigation: React.FC = () => {
                 <li>
                     <Link to="/apiscopes">API Scope Management</Link>
                 </li>
-                {isAuthenticated ? (
+                {!isAuthenticated ? (
                     <li>
-                        <button onClick={signOut}>Logout</button>
+                        <Link to="/login">Login</Link>
                     </li>
                 ) : (
                     <li>
-                        <button onClick={signIn}>Login</button>
+                        <Link to="/logout">Logout</Link>
                     </li>
                 )}
             </ul>
@@ -54,6 +55,7 @@ const App: React.FC = () => {
                         <Route path="/apiresources" element={<PrivateRoute><ApiResourceManagement /></PrivateRoute>} />
                         <Route path="/apiscopes" element={<PrivateRoute><ApiScopeManagement /></PrivateRoute>} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/callback" element={<Callback />} />
                     </Routes>
                 </div>

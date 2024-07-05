@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from './auth';
 
 const Login: React.FC = () => {
-    const { signIn } = useAuth();
+    const { isAuthenticated, signIn } = useAuth();
 
-    return (
-        <div>
-            <h2>Login</h2>
-            <button onClick={signIn}>Sign In</button>
-        </div>
-    );
+    useEffect(() => {
+        signIn();
+    }, [isAuthenticated, signIn]);
+
+
+    return <div>Redirecting to login...</div>;
 };
 
 export default Login;
