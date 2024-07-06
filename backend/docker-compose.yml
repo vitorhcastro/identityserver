@@ -1,6 +1,0 @@
-﻿services:
-  presentation:
-    image: presentation
-    build:
-      context: .
-      dockerfile: src/Presentation/Dockerfile
