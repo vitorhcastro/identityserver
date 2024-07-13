@@ -84,7 +84,7 @@
             {
                 "ClientId": "IdentityServerManagement",
                 "ClientName": "IdentityServerManagement",
-                "ClientUri": "https://admin.skoruba.local",
+                "ClientUri": "https://admin.vhcastro.local",
                 "AllowedGrantTypes": [
                     "authorization_code"
                 ],
@@ -95,14 +95,14 @@
                     }
                 ],
                 "RedirectUris": [
-                    "https://admin.skoruba.local/signin-oidc"
+                    "https://admin.vhcastro.local/signin-oidc"
                 ],
-                "FrontChannelLogoutUri": "https://admin.skoruba.local/signout-oidc",
+                "FrontChannelLogoutUri": "https://admin.vhcastro.local/signout-oidc",
                 "PostLogoutRedirectUris": [
-                    "https://admin.skoruba.local/signout-callback-oidc"
+                    "https://admin.vhcastro.local/signout-callback-oidc"
                 ],
                 "AllowedCorsOrigins": [
-                    "https://admin.skoruba.local"
+                    "https://admin.vhcastro.local"
                 ],
                 "AllowedScopes": [
                     "openid",
@@ -120,13 +120,13 @@
                 "RequireClientSecret": false,
                 "RequirePkce": true,
                 "RedirectUris": [
-                    "https://admin-api.skoruba.local/swagger/oauth2-redirect.html"
+                    "https://admin-api.vhcastro.local/swagger/oauth2-redirect.html"
                 ],
                 "AllowedScopes": [
                     "IdentityServerManagement_api"
                 ],
                 "AllowedCorsOrigins": [
-                    "https://admin-api.skoruba.local"
+                    "https://admin-api.vhcastro.local"
                 ]
             }
         ]
