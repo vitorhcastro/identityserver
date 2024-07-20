@@ -1166,7 +1166,7 @@ export interface IPersistedGrantsApiDto {
 }
 export declare class BaseRoleDtoOfString implements IBaseRoleDtoOfString {
     id: string | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId: any | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId: any | undefined;
     constructor(data?: IBaseRoleDtoOfString);
     init(_data?: any): void;
     static fromJS(data: any): BaseRoleDtoOfString;
@@ -1174,7 +1174,7 @@ export declare class BaseRoleDtoOfString implements IBaseRoleDtoOfString {
 }
 export interface IBaseRoleDtoOfString {
     id: string | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId: any | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId: any | undefined;
 }
 export declare class RoleDtoOfString extends BaseRoleDtoOfString implements IRoleDtoOfString {
     name: string;
@@ -1198,7 +1198,7 @@ export declare class RolesDtoOfIdentityRoleDtoAndString implements IRolesDtoOfId
     pageSize: number;
     totalCount: number;
     roles: IdentityRoleDto[] | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles: IRoleDto[] | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles: IRoleDto[] | undefined;
     constructor(data?: IRolesDtoOfIdentityRoleDtoAndString);
     init(_data?: any): void;
     static fromJS(data: any): RolesDtoOfIdentityRoleDtoAndString;
@@ -1208,7 +1208,7 @@ export interface IRolesDtoOfIdentityRoleDtoAndString {
     pageSize: number;
     totalCount: number;
     roles: IdentityRoleDto[] | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles: IRoleDto[] | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles: IRoleDto[] | undefined;
 }
 export declare class IdentityRolesDto extends RolesDtoOfIdentityRoleDtoAndString implements IIdentityRolesDto {
     constructor(data?: IIdentityRolesDto);
@@ -1232,7 +1232,7 @@ export declare class UsersDtoOfIdentityUserDtoAndString implements IUsersDtoOfId
     pageSize: number;
     totalCount: number;
     users: IdentityUserDto[] | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers: IUserDto[] | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers: IUserDto[] | undefined;
     constructor(data?: IUsersDtoOfIdentityUserDtoAndString);
     init(_data?: any): void;
     static fromJS(data: any): UsersDtoOfIdentityUserDtoAndString;
@@ -1242,7 +1242,7 @@ export interface IUsersDtoOfIdentityUserDtoAndString {
     pageSize: number;
     totalCount: number;
     users: IdentityUserDto[] | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers: IUserDto[] | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers: IUserDto[] | undefined;
 }
 export declare class IdentityUsersDto extends UsersDtoOfIdentityUserDtoAndString implements IIdentityUsersDto {
     constructor(data?: IIdentityUsersDto);
@@ -1254,7 +1254,7 @@ export interface IIdentityUsersDto extends IUsersDtoOfIdentityUserDtoAndString {
 }
 export declare class BaseUserDtoOfString implements IBaseUserDtoOfString {
     id: string | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId: any | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId: any | undefined;
     constructor(data?: IBaseUserDtoOfString);
     init(_data?: any): void;
     static fromJS(data: any): BaseUserDtoOfString;
@@ -1262,7 +1262,7 @@ export declare class BaseUserDtoOfString implements IBaseUserDtoOfString {
 }
 export interface IBaseUserDtoOfString {
     id: string | undefined;
-    skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId: any | undefined;
+    vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId: any | undefined;
 }
 export declare class UserDtoOfString extends BaseUserDtoOfString implements IUserDtoOfString {
     userName: string;

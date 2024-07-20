@@ -7576,7 +7576,7 @@ class BaseRoleDtoOfString {
     init(_data) {
         if (_data) {
             this.id = _data["id"];
-            this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId = _data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseRoleDto.Id"];
+            this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId = _data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseRoleDto.Id"];
         }
     }
     static fromJS(data) {
@@ -7588,7 +7588,7 @@ class BaseRoleDtoOfString {
     toJSON(data) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseRoleDto.Id"] = this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId;
+        data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseRoleDto.Id"] = this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseRoleDtoId;
         return data;
     }
 }
@@ -7655,10 +7655,10 @@ class RolesDtoOfIdentityRoleDtoAndString {
                 for (let item of _data["roles"])
                     this.roles.push(IdentityRoleDto.fromJS(item));
             }
-            if (Array.isArray(_data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"])) {
-                this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles = [];
-                for (let item of _data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"])
-                    this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles.push(IRoleDto.fromJS(item));
+            if (Array.isArray(_data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"])) {
+                this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles = [];
+                for (let item of _data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"])
+                    this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles.push(IRoleDto.fromJS(item));
             }
         }
     }
@@ -7677,10 +7677,10 @@ class RolesDtoOfIdentityRoleDtoAndString {
             for (let item of this.roles)
                 data["roles"].push(item.toJSON());
         }
-        if (Array.isArray(this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles)) {
-            data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"] = [];
-            for (let item of this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles)
-                data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"].push(item.toJSON());
+        if (Array.isArray(this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles)) {
+            data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"] = [];
+            for (let item of this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIRolesDtoRoles)
+                data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IRolesDto.Roles"].push(item.toJSON());
         }
         return data;
     }
@@ -7749,10 +7749,10 @@ class UsersDtoOfIdentityUserDtoAndString {
                 for (let item of _data["users"])
                     this.users.push(IdentityUserDto.fromJS(item));
             }
-            if (Array.isArray(_data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"])) {
-                this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers = [];
-                for (let item of _data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"])
-                    this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers.push(IUserDto.fromJS(item));
+            if (Array.isArray(_data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"])) {
+                this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers = [];
+                for (let item of _data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"])
+                    this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers.push(IUserDto.fromJS(item));
             }
         }
     }
@@ -7771,10 +7771,10 @@ class UsersDtoOfIdentityUserDtoAndString {
             for (let item of this.users)
                 data["users"].push(item.toJSON());
         }
-        if (Array.isArray(this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers)) {
-            data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"] = [];
-            for (let item of this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers)
-                data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"].push(item.toJSON());
+        if (Array.isArray(this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers)) {
+            data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"] = [];
+            for (let item of this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIUsersDtoUsers)
+                data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IUsersDto.Users"].push(item.toJSON());
         }
         return data;
     }
@@ -7812,7 +7812,7 @@ class BaseUserDtoOfString {
     init(_data) {
         if (_data) {
             this.id = _data["id"];
-            this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId = _data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseUserDto.Id"];
+            this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId = _data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseUserDto.Id"];
         }
     }
     static fromJS(data) {
@@ -7824,7 +7824,7 @@ class BaseUserDtoOfString {
     toJSON(data) {
         data = typeof data === 'object' ? data : {};
         data["id"] = this.id;
-        data["skoruba.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseUserDto.Id"] = this.skorubaDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId;
+        data["vhcastro.Duende.IdentityServer.Admin.BusinessLogic.Identity.Dtos.Identity.Interfaces.IBaseUserDto.Id"] = this.vhcastroDuendeIdentityServerAdminBusinessLogicIdentityDtosIdentityInterfacesIBaseUserDtoId;
         return data;
     }
 }

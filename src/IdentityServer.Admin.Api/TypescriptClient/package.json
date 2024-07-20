@@ -1,5 +1,5 @@
 {
-    "name": "@skoruba/duende.identityserver.admin.api.client",
+    "name": "@vhcastro/duende.identityserver.admin.api.client",
     "version": "2.3.0",
     "description": "IdentityServer Api Client",
     "main": "dist/cjs/index.js",
@@ -12,7 +12,7 @@
       "build:esm": "tsc",
       "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
     },
-    "author": "Skoruba",
+    "author": "VHCastro",
     "license": "Apache-2.0",
     "devDependencies": {
       "@tsconfig/recommended": "1.0.2",
